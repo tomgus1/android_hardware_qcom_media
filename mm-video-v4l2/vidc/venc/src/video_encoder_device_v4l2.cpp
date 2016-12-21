@@ -2669,7 +2669,7 @@ bool venc_dev::venc_set_param(void *paramData, OMX_INDEXTYPE index)
                 DEBUG_PRINT_LOW("set AU delimiters: %d", pParam->bEnable);
                 if(venc_set_au_delimiter(pParam->bEnable) == false) {
                     DEBUG_PRINT_ERROR("ERROR: set AU delimiter failed");
-                    return false;
+                    return OMX_ErrorUnsupportedSetting;
                 }
 
                 break;

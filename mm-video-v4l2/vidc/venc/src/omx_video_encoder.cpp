@@ -1615,6 +1615,7 @@ OMX_ERRORTYPE  omx_venc::set_parameter(OMX_IN OMX_HANDLETYPE     hComp,
                 memcpy(&m_sPrependSPSPPS, paramData, sizeof(m_sPrependSPSPPS));
                 break;
             }
+        case OMX_QcomIndexParamH264AUDelimiter:
         case OMX_QcomIndexParamAUDelimiter:
             {
                 VALIDATE_OMX_PARAM_DATA(paramData, OMX_QCOM_VIDEO_CONFIG_AUD);
