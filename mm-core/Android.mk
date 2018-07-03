@@ -12,7 +12,21 @@ OMXCORE_CFLAGS += -U_ENABLE_QC_MSG_LOG_
 #             Figure out the targets
 #===============================================================================
 
-ifeq ($(filter $(TARGET_BOARD_PLATFORM), sdm845),$(TARGET_BOARD_PLATFORM))
+ifeq ($(TARGET_BOARD_PLATFORM),msm8998)
+MM_CORE_TARGET = msm8998
+else ifeq ($(TARGET_BOARD_PLATFORM),msm8937)
+MM_CORE_TARGET = 8937
+else ifeq ($(TARGET_BOARD_PLATFORM),msm8952)
+MM_CORE_TARGET = 8952
+else ifeq ($(TARGET_BOARD_PLATFORM),msm8953)
+MM_CORE_TARGET = msm8953
+else ifeq ($(TARGET_BOARD_PLATFORM),msm8998)
+MM_CORE_TARGET = msm8998
+else ifeq ($(TARGET_BOARD_PLATFORM),sdm660)
+MM_CORE_TARGET = sdm660
+else ifeq ($(TARGET_BOARD_PLATFORM),msm8996)
+MM_CORE_TARGET = msm8996
+else ifeq ($(filter $(TARGET_BOARD_PLATFORM), sdm845),$(TARGET_BOARD_PLATFORM))
 MM_CORE_TARGET = sdm845
 else ifeq ($(filter $(TARGET_BOARD_PLATFORM), msmpeafowl),$(TARGET_BOARD_PLATFORM))
 MM_CORE_TARGET = msmpeafowl
