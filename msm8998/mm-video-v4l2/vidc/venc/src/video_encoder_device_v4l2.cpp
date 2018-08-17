@@ -467,7 +467,7 @@ void* venc_dev::async_venc_message_thread (void *input)
                     break;
                 }
 
-                venc_msg.msgcode = VEN_MSG_FLUSH_OUPUT_DONE;
+                venc_msg.msgcode = VEN_MSG_FLUSH_OUTPUT_DONE;
                 venc_msg.statuscode = VEN_S_SUCCESS;
 
                 if (omx->async_message_process(input,&venc_msg) < 0) {
@@ -3582,7 +3582,7 @@ unsigned venc_dev::venc_flush( unsigned port)
         }
     }
 
-    enc.cmd = V4L2_ENC_QCOM_CMD_FLUSH;
+    enc.cmd = V4L2_QCOM_CMD_FLUSH;
     enc.flags = V4L2_QCOM_CMD_FLUSH_OUTPUT | V4L2_QCOM_CMD_FLUSH_CAPTURE;
 
     if (ioctl(m_nDriver_fd, VIDIOC_ENCODER_CMD, &enc)) {
@@ -4504,11 +4504,11 @@ bool venc_dev::venc_set_au_delimiter(OMX_BOOL enable)
 {
     struct v4l2_control control;
 
-    control.id = V4L2_CID_MPEG_VIDC_VIDEO_H264_AU_DELIMITER;
+    control.id = V4L2_CID_MPEG_VIDC_VIDEO_AU_DELIMITER;
     if(enable) {
-        control.value = V4L2_MPEG_VIDC_VIDEO_H264_AU_DELIMITER_ENABLED;
+        control.value = V4L2_MPEG_VIDC_VIDEO_AU_DELIMITER_ENABLED;
     } else {
-        control.value = V4L2_MPEG_VIDC_VIDEO_H264_AU_DELIMITER_DISABLED;
+        control.value = V4L2_MPEG_VIDC_VIDEO_AU_DELIMITER_DISABLED;
     }
 
     DEBUG_PRINT_HIGH("Set au delimiter: %d", enable);
