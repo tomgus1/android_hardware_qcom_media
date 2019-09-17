@@ -479,6 +479,8 @@ uint32_t C2DColorConverter::getC2DFormat(ColorConvertFormat format)
             return C2D_COLOR_FORMAT_420_YV12;
         case NV12_UBWC:
             return C2D_COLOR_FORMAT_420_NV12 | C2D_FORMAT_UBWC_COMPRESSED;
+        case TP10_UBWC:
+            return C2D_COLOR_FORMAT_420_TP10 | C2D_FORMAT_UBWC_COMPRESSED;
         default:
             ALOGW("%s: Format not supported , %d", __FUNCTION__, format);
             return -1;
