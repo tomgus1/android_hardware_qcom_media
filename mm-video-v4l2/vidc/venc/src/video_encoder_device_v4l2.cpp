@@ -2828,7 +2828,7 @@ bool venc_dev::venc_set_param(void *paramData, OMX_INDEXTYPE index)
                 }
                 break;
             }
-        case OMX_QTIIndexParamColorSpaceConversion:
+/*        case OMX_QTIIndexParamColorSpaceConversion:
             {
                 QOMX_ENABLETYPE *pParam = (QOMX_ENABLETYPE *)paramData;
                 csc_enable = pParam->bEnable;
@@ -2837,7 +2837,7 @@ bool venc_dev::venc_set_param(void *paramData, OMX_INDEXTYPE index)
         default:
             DEBUG_PRINT_ERROR("ERROR: Unsupported parameter in venc_set_param: %u",
                     index);
-            break;
+            break;*/
     }
 
     return true;
